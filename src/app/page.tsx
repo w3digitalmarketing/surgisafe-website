@@ -56,8 +56,8 @@ function HeroSection() {
   const getSquintOffset = () => {
     const dev = 16;
     switch(squintState) {
-      case "inward": return { x: dev, y: 0, term: "Esotropia" };
-      case "outward": return { x: -dev, y: 0, term: "Exotropia" };
+      case "inward": return { x: -dev, y: 0, term: "Esotropia" };
+      case "outward": return { x: dev, y: 0, term: "Exotropia" };
       case "upward": return { x: 0, y: -dev, term: "Hypertropia" };
       case "downward": return { x: 0, y: dev, term: "Hypotropia" };
       default: return { x: 0, y: 0, term: "Normal Alignment" };
