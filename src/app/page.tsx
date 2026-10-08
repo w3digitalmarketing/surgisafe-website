@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  ArrowRight, CheckCircle2, Eye, ShieldCheck, Clock, HeartHandshake, 
+import {
+  ArrowRight, CheckCircle2, Eye, ShieldCheck, Clock, HeartHandshake,
   MapPin, Stethoscope, Users, Baby, ChevronDown
 } from "lucide-react";
 
@@ -34,13 +34,13 @@ function HeroSection() {
       setMousePos({ x, y });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     // Natural blinking
     const blinkInterval = setInterval(() => {
       setIsBlinking(true);
       setTimeout(() => setIsBlinking(false), 150);
     }, 4000);
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       clearInterval(blinkInterval);
@@ -55,7 +55,7 @@ function HeroSection() {
   // Squint deviation for the right eye (anatomical left)
   const getSquintOffset = () => {
     const dev = 16;
-    switch(squintState) {
+    switch (squintState) {
       case "inward": return { x: -dev, y: 0, term: "Esotropia" };
       case "outward": return { x: dev, y: 0, term: "Exotropia" };
       case "upward": return { x: 0, y: -dev, term: "Hypertropia" };
@@ -70,15 +70,15 @@ function HeroSection() {
     <section className="relative overflow-hidden bg-gradient-to-b from-[#f8fcfd] to-[#e6f4f8] pt-20 pb-20 lg:pt-28 lg:pb-32">
       {/* Background Parallax Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
+        <motion.div
           animate={{ x: mousePos.x * -20, y: mousePos.y * -20 }}
-          className="absolute top-20 right-[10%] w-64 h-64 bg-cyan-200/20 rounded-full blur-3xl" 
+          className="absolute top-20 right-[10%] w-64 h-64 bg-cyan-200/20 rounded-full blur-3xl"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: mousePos.x * -10, y: mousePos.y * -10 }}
-          className="absolute bottom-20 left-[5%] w-80 h-80 bg-blue-200/20 rounded-full blur-3xl" 
+          className="absolute bottom-20 left-[5%] w-80 h-80 bg-blue-200/20 rounded-full blur-3xl"
         />
-        
+
         {/* Subtle Child-friendly shapes */}
         <motion.svg animate={{ x: mousePos.x * -30, y: mousePos.y * -30 }} className="absolute top-32 left-[15%] w-8 h-8 text-yellow-300 opacity-60" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
@@ -89,7 +89,7 @@ function HeroSection() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
-          
+
           {/* Left Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -101,30 +101,30 @@ function HeroSection() {
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
               Paediatric Eye & Squint Care
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 text-slate-900 tracking-tight">
-              Helping Little Eyes <br/>
+              Helping Little Eyes <br />
               <span className="relative inline-block text-cyan-600 mt-2">
                 Find Their Focus.
-                <motion.span 
+                <motion.span
                   initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
                   className="absolute -bottom-2 left-0 h-2 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"
                 ></motion.span>
               </span>
             </h1>
-            
+
             <p className="text-lg text-slate-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
               Specialised eye care for children with squint, lazy eye and eye-alignment concerns — with gentle, personalised evaluation and expert guidance.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="https://wa.me/919876543210?text=Hello,%20I%20would%20like%20to%20book%20my%20child's%20eye%20check."
+                href="https://wa.me/919156408259?text=Hello,%20I%20would%20like%20to%20book%20my%20child's%20eye%20check."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 hover:bg-cyan-700 text-white rounded-full font-bold transition-all shadow-xl shadow-cyan-900/20 hover:-translate-y-1 hover:shadow-2xl group"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.99 22.02h-.006c-1.644 0-3.25-.44-4.664-1.272l-.334-.198-3.468.91 1.05-3.32-.218-.346c-.914-1.45-1.398-3.136-1.398-4.887 0-5.023 4.092-9.115 9.123-9.115 2.436 0 4.726.949 6.446 2.67A9.066 9.066 0 0121.11 12.9c0 5.024-4.092 9.117-9.12 9.117v.003zm0-19.957c-5.976 0-10.835 4.86-10.835 10.838 0 1.912.499 3.778 1.448 5.422L1.136 23.5l5.289-1.386c1.58.868 3.393 1.326 5.253 1.326h.005c5.977 0 10.836-4.86 10.836-10.84 0-2.898-1.127-5.621-3.176-7.671-2.048-2.05-4.77-3.181-7.669-3.181z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.99 22.02h-.006c-1.644 0-3.25-.44-4.664-1.272l-.334-.198-3.468.91 1.05-3.32-.218-.346c-.914-1.45-1.398-3.136-1.398-4.887 0-5.023 4.092-9.115 9.123-9.115 2.436 0 4.726.949 6.446 2.67A9.066 9.066 0 0121.11 12.9c0 5.024-4.092 9.117-9.12 9.117v.003zm0-19.957c-5.976 0-10.835 4.86-10.835 10.838 0 1.912.499 3.778 1.448 5.422L1.136 23.5l5.289-1.386c1.58.868 3.393 1.326 5.253 1.326h.005c5.977 0 10.836-4.86 10.836-10.84 0-2.898-1.127-5.621-3.176-7.671-2.048-2.05-4.77-3.181-7.669-3.181z" /></svg>
                 Book Your Child's Eye Check
               </a>
               <a
@@ -138,17 +138,17 @@ function HeroSection() {
 
           {/* Right Visual & Trust Content */}
           <div className="w-full lg:w-7/12 relative h-[500px] lg:h-[600px] flex items-center justify-center z-10">
-            
+
             {/* The Main 3D/SVG Interactive Eyes */}
             <div className="relative z-20 flex flex-col items-center">
-              
+
               {/* Rotating Focus Rings Behind Eyes */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 m-auto w-[120%] h-[120%] rounded-full border border-cyan-300/30 border-dashed -z-10"
               />
-              <motion.div 
+              <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 m-auto w-[140%] h-[140%] rounded-full border-2 border-blue-200/20 -z-10"
@@ -158,11 +158,11 @@ function HeroSection() {
               <div className="flex gap-8 md:gap-12 bg-white/40 p-10 rounded-[3rem] backdrop-blur-md border border-white/60 shadow-2xl shadow-cyan-900/5 mb-8 transform-gpu perspective-1000">
                 {/* Left Eye */}
                 <div className="relative w-28 h-28 md:w-36 md:h-36 bg-white rounded-full shadow-[inset_0_-8px_15px_rgba(0,0,0,0.05),0_10px_25px_rgba(0,0,0,0.05)] flex items-center justify-center overflow-hidden border-2 border-slate-100">
-                  <motion.div 
-                    animate={{ 
-                      x: baseTrackX, 
+                  <motion.div
+                    animate={{
+                      x: baseTrackX,
                       y: baseTrackY,
-                      scaleY: isBlinking ? 0.1 : 1 
+                      scaleY: isBlinking ? 0.1 : 1
                     }}
                     transition={{ type: "spring", stiffness: 150, damping: 15 }}
                     className="w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-full flex items-center justify-center relative"
@@ -176,9 +176,9 @@ function HeroSection() {
 
                 {/* Right Eye (Can deviate based on squint selector) */}
                 <div className="relative w-28 h-28 md:w-36 md:h-36 bg-white rounded-full shadow-[inset_0_-8px_15px_rgba(0,0,0,0.05),0_10px_25px_rgba(0,0,0,0.05)] flex items-center justify-center overflow-hidden border-2 border-slate-100">
-                  <motion.div 
-                    animate={{ 
-                      x: baseTrackX + squintOffset.x, 
+                  <motion.div
+                    animate={{
+                      x: baseTrackX + squintOffset.x,
                       y: baseTrackY + squintOffset.y,
                       scaleY: isBlinking ? 0.1 : 1
                     }}
@@ -201,11 +201,10 @@ function HeroSection() {
                     <button
                       key={type}
                       onClick={() => setSquintState(type)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                        squintState === type 
-                          ? 'bg-cyan-600 text-white shadow-md' 
+                      className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${squintState === type
+                          ? 'bg-cyan-600 text-white shadow-md'
                           : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                      }`}
+                        }`}
                     >
                       {type.charAt(0).toUpperCase() + type.slice(1)}
                     </button>
@@ -221,7 +220,7 @@ function HeroSection() {
             </div>
 
             {/* Floating Trust Elements */}
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5, scale: 1.02 }}
               className="absolute top-0 right-0 md:-right-10 z-30 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-white flex items-center gap-3 cursor-pointer"
             >
@@ -229,13 +228,13 @@ function HeroSection() {
                 <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=150&auto=format&fit=crop" alt="Doctor" className="w-full h-full object-cover" />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900">Dr. [Doctor Name]</p>
+                <p className="text-sm font-bold text-slate-900">Dr. Divya Wakodkar Tomar</p>
                 <p className="text-xs text-slate-500 font-medium">Paediatric Squint Specialist</p>
                 <p className="text-[10px] text-cyan-600 font-bold mt-0.5 flex items-center">Meet Your Doctor <ArrowRight size={10} className="ml-1" /></p>
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5, scale: 1.02 }}
               className="absolute bottom-0 left-0 md:-left-10 z-30 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white max-w-[220px] cursor-pointer"
             >
@@ -246,7 +245,7 @@ function HeroSection() {
               <p className="text-[10px] text-slate-500 mb-2 leading-tight">Early specialist evaluation can help understand the cause.</p>
               <p className="text-[10px] text-cyan-600 font-bold flex items-center">Talk to the Doctor <ArrowRight size={10} className="ml-1" /></p>
             </motion.div>
-            
+
           </div>
         </div>
       </div>
@@ -294,11 +293,11 @@ function SquintSection() {
     // Determine max deviation distance based on type
     const maxDev = 16;
     const factor = severity / 100;
-    
+
     let devX = 0;
     let devY = 0;
 
-    switch(squintType) {
+    switch (squintType) {
       case "esotropia": // Inward
         devX = isRightEye ? -maxDev * factor : maxDev * factor;
         break;
@@ -324,7 +323,7 @@ function SquintSection() {
 
   // Dynamic Content logic
   const getExplanation = () => {
-    switch(squintType) {
+    switch (squintType) {
       case "esotropia":
         return {
           title: "Esotropia (Inward Turn)",
@@ -379,13 +378,13 @@ function SquintSection() {
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {/* Visualizer Column */}
           <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-200 flex flex-col items-center">
-            
+
             <div className="flex items-center gap-4 mb-10 w-full justify-between px-4">
               <span className="text-sm font-semibold text-slate-700">Before (Normal)</span>
-              <input 
-                type="range" 
-                min="0" max="100" 
-                value={severity} 
+              <input
+                type="range"
+                min="0" max="100"
+                value={severity}
                 onChange={(e) => setSeverity(Number(e.target.value))}
                 className="flex-1 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-600 mx-4"
               />
@@ -394,34 +393,34 @@ function SquintSection() {
 
             {/* The SVG Eyes */}
             <div className="relative w-full aspect-[2/1] max-w-md flex justify-center items-center bg-slate-50 rounded-2xl border border-slate-100 shadow-inner overflow-hidden">
-              
+
               {/* Fixation Target & Guidelines */}
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.5)] z-0 flex items-center justify-center">
                 <div className="w-1 h-1 bg-white rounded-full"></div>
               </div>
-              
+
               {/* SVG Guide Lines to simulate visual axis */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ opacity: 0.3 }}>
                 {/* Left Eye Line */}
-                <line 
-                  x1="30%" y1="50%" 
-                  x2={`calc(50% - ${-leftDev.x * 2}px)`} 
-                  y2={`calc(16px - ${-leftDev.y * 2}px)`} 
-                  stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4 4" 
+                <line
+                  x1="30%" y1="50%"
+                  x2={`calc(50% - ${-leftDev.x * 2}px)`}
+                  y2={`calc(16px - ${-leftDev.y * 2}px)`}
+                  stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4 4"
                 />
                 {/* Right Eye Line */}
-                <line 
-                  x1="70%" y1="50%" 
-                  x2={`calc(50% - ${-rightDev.x * 2}px)`} 
-                  y2={`calc(16px - ${-rightDev.y * 2}px)`} 
-                  stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4 4" 
+                <line
+                  x1="70%" y1="50%"
+                  x2={`calc(50% - ${-rightDev.x * 2}px)`}
+                  y2={`calc(16px - ${-rightDev.y * 2}px)`}
+                  stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4 4"
                 />
               </svg>
 
               <div className="flex gap-6 z-10">
                 {/* Left Eye */}
                 <div className="relative">
-                  <p className="absolute -top-8 w-full text-center text-xs font-bold text-slate-400 tracking-widest">RIGHT EYE</p>
+                  <p className="absolute -top-8 w-full text-center text-xs font-bold text-slate-400 tracking-widest">LEFT EYE</p>
                   <svg width="120" height="70" viewBox="0 0 120 70">
                     {/* Sclera */}
                     <path d="M10,35 Q60,5 110,35 Q60,65 10,35" fill="white" stroke="#e2e8f0" strokeWidth="2" />
@@ -436,10 +435,10 @@ function SquintSection() {
                     <path d="M10,35 Q60,5 110,35" fill="none" stroke="#cbd5e1" strokeWidth="3" />
                   </svg>
                 </div>
-                
+
                 {/* Right Eye (Anatomical Left) */}
                 <div className="relative">
-                  <p className="absolute -top-8 w-full text-center text-xs font-bold text-slate-400 tracking-widest">LEFT EYE</p>
+                  <p className="absolute -top-8 w-full text-center text-xs font-bold text-slate-400 tracking-widest">RIGHT EYE</p>
                   <svg width="120" height="70" viewBox="0 0 120 70">
                     <path d="M10,35 Q60,5 110,35 Q60,65 10,35" fill="white" stroke="#e2e8f0" strokeWidth="2" />
                     <g transform={`translate(${rightDev.x}, ${rightDev.y})`}>
@@ -463,15 +462,15 @@ function SquintSection() {
 
           {/* Controls & Explanation Column */}
           <div className="flex flex-col">
-            
+
             {/* Selectors */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 mb-6">
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Squint Type</label>
-                  <select 
-                    value={squintType} 
-                    onChange={(e) => { setSquintType(e.target.value); if(e.target.value==='normal') setSeverity(0); }}
+                  <select
+                    value={squintType}
+                    onChange={(e) => { setSquintType(e.target.value); if (e.target.value === 'normal') setSeverity(0); }}
                     className="w-full bg-slate-50 border border-slate-200 text-slate-700 rounded-lg px-4 py-2.5 font-medium focus:ring-2 focus:ring-cyan-500 outline-none"
                   >
                     <option value="normal">Normal Alignment</option>
@@ -481,11 +480,11 @@ function SquintSection() {
                     <option value="hypotropia">Hypotropia (Downward)</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Affected Eye</label>
-                  <select 
-                    value={affectedEye} 
+                  <select
+                    value={affectedEye}
                     onChange={(e) => setAffectedEye(e.target.value)}
                     disabled={squintType === 'normal'}
                     className="w-full bg-slate-50 border border-slate-200 text-slate-700 rounded-lg px-4 py-2.5 font-medium focus:ring-2 focus:ring-cyan-500 outline-none disabled:opacity-50"
@@ -500,13 +499,13 @@ function SquintSection() {
               <div className="mt-6">
                 <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Patient Profile</label>
                 <div className="flex bg-slate-100 p-1 rounded-lg">
-                  <button 
+                  <button
                     onClick={() => setPatientType("child")}
                     className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${patientType === 'child' ? 'bg-white shadow-sm text-cyan-700' : 'text-slate-500 hover:text-slate-700'}`}
                   >
                     Child
                   </button>
-                  <button 
+                  <button
                     onClick={() => setPatientType("adult")}
                     className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${patientType === 'adult' ? 'bg-white shadow-sm text-cyan-700' : 'text-slate-500 hover:text-slate-700'}`}
                   >
@@ -519,17 +518,17 @@ function SquintSection() {
             {/* Explanation Panel */}
             <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-xl flex-1 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
-              
+
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-1 text-cyan-400">{expl.title}</h3>
                 <p className="text-slate-300 font-medium mb-6">{expl.meaning}</p>
-                
+
                 <div className="space-y-4">
                   <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                     <p className="text-xs text-slate-400 font-bold uppercase mb-1">Common Signs</p>
                     <p className="text-sm text-slate-200 leading-relaxed">{expl.signs}</p>
                   </div>
-                  
+
                   <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                     <p className="text-xs text-slate-400 font-bold uppercase mb-1">{patientType === 'child' ? 'In Children' : 'In Adults'}</p>
                     <p className="text-sm text-slate-200 leading-relaxed">{expl.context}</p>
@@ -542,7 +541,7 @@ function SquintSection() {
                   Not sure which type this looks like?
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello,%20I%20used%20the%20squint%20visualizer%20and%20would%20like%20to%20consult%20a%20specialist."
+                  href="https://wa.me/919156408259?text=Hello,%20I%20used%20the%20squint%20visualizer%20and%20would%20like%20to%20consult%20a%20specialist."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex justify-center items-center gap-2 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-cyan-500/25"
@@ -576,10 +575,10 @@ function TreatmentsSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Comprehensive Eye Care Under One Roof</h2>
           <p className="text-slate-600">Advanced diagnostic techniques and personalized treatments for various eye conditions.</p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {treatments.map((t, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               whileHover={{ y: -5 }}
               className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-cyan-100 transition-all group cursor-pointer"
@@ -607,22 +606,22 @@ function DoctorProfile() {
         <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl">
           <div className="grid lg:grid-cols-2">
             <div className="h-64 lg:h-auto bg-slate-800 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop" 
-                alt="Professional Doctor Portrait" 
+              <img
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop"
+                alt="Professional Doctor Portrait"
                 className="absolute inset-0 w-full h-full object-cover opacity-90 grayscale mix-blend-luminosity"
               />
             </div>
-            
+
             <div className="p-10 lg:p-16 text-white">
               <p className="text-cyan-400 font-bold text-sm tracking-wider uppercase mb-2">About The Specialist</p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">Meet Dr. [Doctor Name]</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2">Meet Dr. Divya Wakodkar Tomar</h2>
               <p className="text-xl text-slate-300 mb-8">Ophthalmologist & Squint Specialist</p>
-              
+
               <p className="text-slate-400 mb-8 leading-relaxed">
                 Dedicated to providing exceptional eye care with a focus on strabismus and paediatric ophthalmology. Combining years of clinical experience with modern diagnostic techniques to deliver personalized treatment plans for every patient.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-10">
                 <div className="bg-slate-800/50 border border-slate-700 px-4 py-3 rounded-xl">
                   <p className="font-bold text-lg text-white">15+ Years</p>
@@ -637,9 +636,9 @@ function DoctorProfile() {
                   <p className="text-xs text-slate-400">Child & Adult Eye Care</p>
                 </div>
               </div>
-              
+
               <a
-                href="https://wa.me/919876543210?text=Hello,%20I%20would%20like%20to%20consult%20Dr.%20[Name]."
+                href="https://wa.me/919156408259?text=Hello,%20I%20would%20like%20to%20consult%20Dr.%20Divya%20Wakodkar%20Tomar."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-100 text-slate-900 rounded-full font-bold transition-colors"
@@ -666,7 +665,7 @@ function WhyChooseUs() {
     <section className="py-24 bg-slate-50">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-16">Why Choose Our Clinic</h2>
-        
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((r, i) => (
             <div key={i} className="flex flex-col items-center">
@@ -700,7 +699,7 @@ function BookingSection() {
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Format message
     const message = `Hello, I would like to book an eye consultation.
     
@@ -714,14 +713,14 @@ Message: ${formData.message || "N/A"}
 
 Please let me know the available appointment slots.`;
 
-    const whatsappURL = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/919156408259?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
   };
 
   return (
     <section className="py-24 bg-gradient-primary relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="text-white">
@@ -731,7 +730,7 @@ Please let me know the available appointment slots.`;
             <p className="text-slate-300 text-lg mb-10">
               Schedule an expert eye evaluation and understand the right next step for your vision. Fill in your details and continue directly on WhatsApp.
             </p>
-            
+
             <div className="flex gap-6 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400">
@@ -744,11 +743,11 @@ Please let me know the available appointment slots.`;
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
             <h3 className="text-2xl font-bold text-slate-900 mb-2">Book Your Consultation</h3>
             <p className="text-slate-500 text-sm mb-8">Fill in details to continue on WhatsApp</p>
-            
+
             <form onSubmit={handleWhatsAppSubmit} className="space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -757,10 +756,10 @@ Please let me know the available appointment slots.`;
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">Mobile Number *</label>
-                  <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="9876543210" />
+                  <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="9156408259" />
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">Age</label>
@@ -779,7 +778,7 @@ Please let me know the available appointment slots.`;
                   </select>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Date</label>
@@ -790,16 +789,16 @@ Please let me know the available appointment slots.`;
                   <input name="time" value={formData.time} onChange={handleChange} type="time" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">Message (Optional)</label>
                 <textarea name="message" value={formData.message} onChange={handleChange} rows={2} className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Briefly describe your condition..."></textarea>
               </div>
-              
+
               <button type="submit" className="w-full bg-[#25D366] hover:bg-[#20b858] text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-green-500/30">
                 Continue on WhatsApp <ArrowRight size={20} />
               </button>
-              
+
               <p className="text-center text-xs text-slate-500 mt-4">
                 You will be redirected to WhatsApp to send this message. No email is sent.
               </p>
@@ -828,11 +827,11 @@ function FAQSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
           <p className="text-slate-600">Common questions about squint and eye care.</p>
         </div>
-        
+
         <div className="space-y-4">
           {faqs.map((faq, i) => (
             <div key={i} className="border border-slate-200 rounded-2xl overflow-hidden">
-              <button 
+              <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-6 bg-slate-50 hover:bg-slate-100 transition-colors text-left font-bold text-slate-900"
               >
@@ -856,7 +855,7 @@ function FAQSection() {
 function TargetIcon(props: any) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
     </svg>
   );
 }

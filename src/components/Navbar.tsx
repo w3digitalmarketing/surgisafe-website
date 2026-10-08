@@ -33,12 +33,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-gradient-accent flex items-center justify-center text-white font-bold text-xl">
-            V
-          </div>
-          <span className="font-bold text-xl tracking-tight text-slate-900">
-            Vision<span className="text-cyan-600">Care</span>
-          </span>
+          <img src="/logo.png" alt="Surgisafe Logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
@@ -57,7 +52,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="https://wa.me/919876543210?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment."
+            href="https://wa.me/919156408259?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment."
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
@@ -95,7 +90,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="https://wa.me/919876543210?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment."
+              href="https://wa.me/919156408259?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-3 rounded-full text-base font-medium mt-2"

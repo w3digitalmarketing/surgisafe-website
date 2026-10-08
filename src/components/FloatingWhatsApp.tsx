@@ -15,7 +15,7 @@ export default function FloatingWhatsApp() {
   }, []);
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/919876543210?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment.", "_blank");
+    window.open("https://wa.me/919156408259?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment.", "_blank");
   };
 
   return (
@@ -45,7 +45,7 @@ export default function FloatingWhatsApp() {
       {isMobile && (
         <div className="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-slate-200 p-3 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] flex gap-2">
           <a
-            href="tel:+919876543210"
+            href="tel:+919156408259"
             className="flex-1 flex flex-col items-center justify-center py-2 bg-slate-100 text-slate-800 rounded-xl active:bg-slate-200 transition-colors"
           >
             <Phone size={20} className="mb-1" />

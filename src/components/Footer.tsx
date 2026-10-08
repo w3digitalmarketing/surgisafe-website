@@ -9,13 +9,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-cyan-600 flex items-center justify-center text-white font-bold text-xl">
-                V
-              </div>
-              <span className="font-bold text-xl tracking-tight text-white">
-                Vision<span className="text-cyan-500">Care</span>
-              </span>
+            <Link href="/" className="inline-block mb-6 bg-white p-2 rounded-xl">
+              <img src="/logo.png" alt="Surgisafe Logo" className="h-12 w-auto" />
             </Link>
             <p className="text-sm text-slate-400 mb-6">
               Expert ophthalmology clinic specializing in squint care, pediatric eye health, and comprehensive eye examinations.
@@ -38,15 +33,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex gap-3 items-start">
                 <MapPin size={18} className="text-cyan-500 shrink-0 mt-0.5" />
-                <span className="text-sm">123 Health Avenue, Medical District, City - 400001</span>
+                <span className="text-sm">Surgisafe, 101, first floor, GNP Landmark building, near Vani Vidyalaya School, Khadakpada, Kalyan (west), Maharashtra</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone size={18} className="text-cyan-500 shrink-0" />
-                <span className="text-sm">+91 98765 43210</span>
+                <span className="text-sm">+91 91564 08259</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Mail size={18} className="text-cyan-500 shrink-0" />
-                <span className="text-sm">care@visioncareclinic.com</span>
+                <span className="text-sm">surgisafe23@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -72,7 +67,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            &copy; 2024 VisionCare Clinic. All rights reserved.
+            &copy; 2024 Surgisafe. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-xs text-slate-500 hover:text-slate-300">Privacy Policy</Link>
